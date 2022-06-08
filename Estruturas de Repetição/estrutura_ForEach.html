@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Estrutura de Repetição - FOR EACH </title>
+</head>
+<body>
+<script>
+console.log("--------------- FOR EACH -----------------")
+
+// - Exemplo 01
+var numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; //Valores do Array
+var total = 0; //Contador da Operação
+
+function somar(item) {
+    total += item;
+} // Essa função soma todos os valores que estão contidos no Array.
+
+numeros.forEach(somar); // For each pega o que está na function.
+console.log(total);// Exibe no Console o valor da soma.
+
+// - Exemplo 02
+
+var numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Valores do Array
+var total = 0;// Contador da Operação
+
+function somar(item, indice) {
+    total += item;
+    console.log("[índice " + indice + "]= " + total + " -> ");
+}// É realizado a mesma soma, só que é exibido o valor da somatória a cada posição do Array e também do índice percorrido.
+
+numeros.forEach(somar); //Mostra os itens no Array junto com o índice, que pode ser utilizado no corpo da função.
+
+// - Exemplo 03
+
+var numeros = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Valores do Array
+var total = 0; // Contador da Operação
+
+function somar(item, indice) {
+    total += item;
+    numeros[indice] = total;
+}// Pega os valores do Array e soma com o valor de sua posição com a anterior.
+
+numeros.forEach(somar);// Pega o que está na function.
+console.log(numeros);// Mostra no Console essa soma.
+
+// - Exemplo 04
+
+var marcas = ["Fiat", "Chevrolet", "Ford", "Volkswagen"] // Valores do Array
+var marcasIniciadasComF = []; // Array com o valor a ser preenchido na condição.
+var novoIndice = 0; // Contador da Operação.
+
+function selecionarMarcas(item, indice) {
+    if (marcas[indice].indexOf("F") == 0) {
+        marcasIniciadasComF[novoIndice] = marcas[indice];
+        novoIndice++;
+    }// Essa condição vai determinar o valor de um Array que tenha o caractere F na String.
+}
+
+marcas.forEach(selecionarMarcas); // For each pega o que está contido na function, e dispõe a condição.
+console.log(marcasIniciadasComF); // Exibe no Console os Arrays que começam com a letra F(Fiat, Ford).
+
+// - Exemplo 05
+
+var nomes = ["Alberto", "Alex", "Sandro", "Roberta"]; // Valores do Array.
+
+function converterParaMaisculo(item, indice) {
+    nomes[indice] = nomes[indice].toUpperCase(); // O que está contido na function transforma as Strings em MAIÚSCULAS.
+}
+
+nomes.forEach(converterParaMaisculo); //For each pega o que está contido na function.
+console.log(nomes); //Exibe no Console o valores String do Array em Maiúsculo.
+
+// - Exemplo 06
+
+var nomes = ["Alberto", "Alex", "Sandro", "Ana Roberta"]; // Valores do Array.
+var tamanhoNome = 0; // Vai servir para determinar o posicionamento dos Arrays. 
+var nome = ""; // String Vazia, serve para auxiliar no texto da variável.
+
+function maiorNome(item, indice) {
+    if (nomes[indice].length > tamanhoNome) {
+        nome = nomes[indice];
+        tamanhoNome = nomes[indice].length;
+    }/* Essa condição vai pegar os valores contidos no Array, e vai pegar o maior deles baseado na posição, no caso se
+ qualquer valor maior que zero for verdadeiro, a condição pega os caracteres da posição pelo .length.   
+    */  
+}
+
+nomes.forEach(maiorNome); // Pega o maior valor pela posição, no caso é o 3.
+console.log(nome); // Exibe no Console.log a posição 3 do Array, 'Ana Roberta'.
+</script>    
+</body>
+</html>

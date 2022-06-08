@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estruturas de Repetição</title>
+</head>
+<body>
+<script>
+// Nome: Lucas Rychardson Mourão Ancelmo
+// N: 21
+
+console.log("--------------- FOR IN -----------------");
+
+// - Exemplo 01
+const cores = [ 'Verde', 'Amarelo', 'Azul', 'Branco' ] // Essa linha representa os valores armazenados no Array.
+
+for (const index in cores) { // Essa é a Estrutura For in, e ela vai repetir os valores contidos no Array 'cores'.
+  console.log(index, cores[index]) // O Console.log vai exibir respectivamente, a ordem do Array e os seus valores.
+}
+
+// - Exemplo 02
+
+const pessoa = { // Esse é o objeto 'pessoa' e nele está contido seus atributos e métodos.
+  nome: 'Bruno', // Variável 'nome' de valor String.
+  idade: 25 // Variável 'idade' de valor Inteiro.
+}
+
+for (const index in pessoa) { // Estrutura de Repetição For in.
+  console.log(`${index} - ${pessoa[index]}`) // Mostra no Console.log os valores do objeto, antecedido do tipo de suas variáveis.
+}
+// Nesse exemplo, o console exibe na tela o valor do Array, que começa pelo tipo da variável e depois a informção contida.
+// - Exemplo 03
+
+const produtos = [ // Objeto 'produtos'
+  { descricao: 'Resma Ofício', valor: 11.50, quantidade: 10 },
+  { descricao: 'Lapis preto', valor: 0.50, quantidade: 3 },
+  { descricao: 'Transferidor plastico', valor: 1.20, quantidade: 4 } // Atributos do objeto 'produtos'
+]
+
+let total = 0 // Atribuição de valor ao contador.
+
+for (const index in produtos) { // Estrutura de Repetição For in.
+  const { valor, quantidade } = produtos[index] // Atribuição aos valores do Array para realizar a operação.
+
+  total += valor * quantidade // Fórmula para somar os valores no Array.
+}
+
+console.log(total) //Exibe no Console.log o valor da soma no Array.
+// Nesse código, o que está sendo feito é uma operação para somar todos esses Arrays.
+
+console.log("--------------- FOR OF -----------------")
+
+// - Exemplo 01
+const numeros = [ 10, 11, 22, 23, 34, 45, 66, 17, 28, 93, 101 ] // Array com os valores 
+
+for (const numero of numeros) { // Estrutura de Repetição For of.
+  console.log(numero) // O Console.log vai exibir todos os valores do Array na posição em que colocada na variável.
+}
+
+// - Exemplo 02
+const carros = [ // Objeto 'carros'.
+  { id: 1, modelo: 'Corsa', marca: 'Chevrolet', preco: 18000 },
+  { id: 2, modelo: 'Punto', marca: 'Fiat', preco: 12000 },
+  { id: 3, modelo: 'Gol', marca: 'Volkswagen', preco: 14000 },
+  { id: 4, modelo: 'Saveiro', marca: 'Volkswagen', preco: 20000 },
+  { id: 5, modelo: 'Uno', marca: 'Fiat', preco: 12000 } // Atributos do objeto
+]
+
+ let Total = 0; // Contador para estrutura de repetição, serve para armazenar o valor na soma.
+
+for (const carro of carros) {
+  Total += carro.preco // Na soma, ele pega só o preço do objeto carro, pois o mesmo é um valor Inteiro.
+}
+
+// converte o número para o padrão monetário
+const valorFinal = Number(Total).toLocaleString('pt-BR', {
+  style: 'currency',
+  currency: 'BRL'
+})
+
+console.log(valorFinal) // Exibe o valor da Soma.
+
+// - Exemplo 03
+const artigo = document.querySelectorAll('article > p') // Captura todos os parágrafos de uma página HTML.
+
+for (const paragrafo of artigo) { // O For of percorre cada item da lista adcionando a classe lida em cada um dos elementos.
+  paragrafo.classList.add("read")
+}
+</script>    
+</body>
+</html>
